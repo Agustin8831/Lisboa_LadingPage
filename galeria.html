@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;            
+        }
+        body {
+            font-size: 18px;
+        }
+        .portada-ciudad {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            display: grid;
+            place-content: center;
+        }
+        header nav h1 {
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.463);
+            text-align: center;
+            font-size: 180px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+        header nav ul {
+            list-style: none;
+            display: flex;            
+            border-radius: 10px;
+            overflow: hidden;            
+        }
+        header nav ul li {
+            background-color: orange;
+            padding: 20px 40px;
+        }
+        header nav ul li:hover {
+            background-color: rgb(233, 151, 0);
+        }
+        header nav ul a {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 35px;
+        }
+        .contenido-cartas {            
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 60px 40px;
+            background-color: rgb(255, 255, 255);
+        }
+        .carta {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            display: flex;            
+            border-radius: 10px;
+            max-width: 400px;
+            min-width: 400px;
+            position: relative;
+        }
+        .carta img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        footer {
+            width: 100%;
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 40px;
+        }
+        footer ul {
+            list-style: none;            
+            text-align: center;
+        }
+        footer ul li h3 {
+            margin-bottom: 10px;
+        }
+        footer ul li a {
+            display: inline-block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: rgb(53, 53, 53);
+        }
+        @media screen and (max-width: 830px) {
+            header nav h1 {
+                font-size: 125px;
+            }
+            header nav ul {
+                margin:  0 auto;
+                width: 80%;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+            }
+            header nav ul li {
+                padding: 15px 30px;
+            }
+        }
+        @media screen and (max-width: 500px) {
+            body {
+                overflow-x: hidden;
+                max-width: 500px;
+            }
+            header nav h1 {
+                font-size: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="portada-ciudad" src="./src/img/lisboa.webp" alt="" srcset="">
+        <nav>
+            <h1>
+                lISBOA
+            </h1>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./index.html#lugares">Lugares</a></li>
+                <li><a href="./index.html#testimonios">Testimonios</a></li>
+                <li><a href="./index.html#reserva">Reserva</a></li>
+                <li><a href="./galeria.html">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>   
+    <main>
+        <h2>Galeria de Fotos</h2>
+        <section id="lugares" class="contenido-cartas sec">
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/1534560/pexels-photo-1534560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/3412019/pexels-photo-3412019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/3146209/pexels-photo-3146209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/3533909/pexels-photo-3533909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/12221812/pexels-photo-12221812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/12221799/pexels-photo-12221799.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/14545949/pexels-photo-14545949.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/14704133/pexels-photo-14704133.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/1559908/pexels-photo-1559908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/164268/pexels-photo-164268.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/6061291/pexels-photo-6061291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/461936/pexels-photo-461936.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/2061751/pexels-photo-2061751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/5069526/pexels-photo-5069526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/2867883/pexels-photo-2867883.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+            <article class="carta">
+                <img src="https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </article>
+        </section>
+    </main>
+    <footer>
+        <ul>
+            <li><h3>Referencias</h3></li>
+            <li><a target="_blank" href="https://youtu.be/QUpUKqcWBm0">LISBON CINEMATIC TRAVEL VIDEO</a></li>
+            <li><a target="_blank" href="https://youtu.be/9iUrj19aaNI">LISBOA - THE EUROPEAN SAN FRANCISCO</a></li>
+            <li><a target="_blank" href="https://www.pexels.com/es-es/">Pexel</a></li>
+            <li><a target="_blank" href="https://www.portugal.net/lisboa/que-ver-lisboa/alfama/">Alfama</a></li>
+            <li><a target="_blank" href="https://www.tripadvisor.com.mx/Attraction_Review-g189158-d195105-Reviews-Bairro_Alto-Lisbon_Lisbon_District_Central_Portugal.html">Barrio Alto</a></li>
+            <li><a target="_blank" href="https://es.m.wikipedia.org/wiki/Archivo:Torre_Belem_(Lisboa).jpg">Torre Belem</a></li>
+            <li><a target="_blank" href="http://castelodesaojorge.pt/site/es/planear-la-visita/">Castelo de S. Jorge</a></li>
+            <li><a target="_blank" href="https://www.disfrutalisboa.com/actividades/">Lisboa</a></li>
+            <li><a target="_blank" href="https://www.itinari.com/es/location/mosteiro-dos-jeronimos">Mosteiro dos Jerónimos</a></li>
+            <li>Diseño: <a target="_blank" href="https://twitter.com/Agustin8831">Agustin Perez</a></li>
+            <li>Email: <a target="_blank" href="apagustin8831@gmail.com">apagustin8831@gmail.com</a></li>
+        </ul>
+        
+    </footer>
+</body>
+</html>

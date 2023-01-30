@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisboa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;            
+        }
+        body {
+            font-size: 18px;
+        }
+        .portada-ciudad {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            display: grid;
+            place-content: center;
+        }
+        header nav h1 {
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.463);
+            text-align: center;
+            font-size: 180px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+        header nav ul {
+            list-style: none;
+            display: flex;            
+            border-radius: 10px;
+            overflow: hidden;            
+        }
+        header nav ul li {
+            background-color: orange;
+            padding: 20px 40px;
+        }
+        header nav ul li:hover {
+            background-color: rgb(233, 151, 0);
+        }
+        header nav ul a {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        .introduccion {            
+            display: grid;
+            place-content: center;
+            margin: 0 auto;            
+            max-width: 1000px;
+            min-width: 400px;
+            padding: 60px 40px;
+        }.introduccion h2 {
+            margin-bottom: 20px;
+            font-size: 35px;
+        }
+        .introduccion p {
+            margin-bottom: 20px;
+        }
+        .video-cont {
+            margin: 60px 0;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            display: grid;
+            place-content: center;
+        }
+        .tabla {
+            border-collapse: collapse;
+        }
+        .tabla th {
+            border:1px solid #C0C0C0;
+            padding: 10px;
+            background:rgba(255, 166, 0, 0.377);
+        }
+        .tabla tr td:nth-child(1) {            
+            background:rgba(255, 166, 0, 0.142);
+        }
+        .tabla td {            
+            border:1px solid #C0C0C0;
+            padding: 10px;
+        }
+
+        .contenido-cartas {            
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 60px 40px;
+            background-color: orange;
+
+        }
+        .carta {
+            overflow: hidden;
+            display: flex;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            max-width: 800px;
+            min-width: 400px;
+        }
+        .carta-text {
+            width: 50%;
+            padding: 80px 40px;
+        }
+        .carta-text h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+        .carta img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .testimonios {
+            max-width: 1000px;
+            min-width: 400px;
+            margin:  0 auto;
+            padding: 60px 40px;
+        }
+        .testimonios > h2 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+        .visitante-cont {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;            
+            gap: 40px;
+        }
+        .visitante {
+            width: 280px;
+            height: 500px;
+            overflow-x: hidden;
+            padding: 20px;
+            background-color: rgb(241, 241, 241);
+            box-shadow: 0 0 10px rgb(164, 164, 164);
+            border-radius: 10px;
+        }
+        .visitante img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 100%;
+        }
+        .visitante h3 {
+            text-align: center;
+            margin: 10px 10px;
+        }
+        .video-lisboa {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            display: grid;
+            place-content: center;
+            margin-bottom: 60px;
+        }
+        .reservacion {
+            width: 100%;
+            padding: 60px 40px;
+            background-color: rgb(24, 24, 24);            
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .formulario {
+            width: 400px;
+            border-radius: 10px;
+            background-color: orange;
+            padding: 40px;
+        }
+        .formulario ul {
+            width: 100%;
+            list-style: none;
+        }
+        .formulario ul li {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .formulario ul li label {
+            margin-bottom: 20px;
+        }
+        .formulario ul li input {
+            outline: none;
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.278);
+            padding: 0 20px;
+            background-color: rgb(255, 255, 255);
+        }
+        .formulario ul li button {
+            outline: none;
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.278);            
+            background-color: rgb(255, 255, 255);
+        }
+        .formulario ul li button:hover {
+            background-color: rgb(227, 227, 227);
+        }        
+        footer {
+            width: 100%;
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 40px;
+        }
+        footer ul {
+            list-style: none;            
+            text-align: center;
+        }
+        footer ul li h3 {
+            margin-bottom: 10px;
+        }
+        footer ul li a {
+            display: inline-block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: rgb(53, 53, 53);
+        }
+        @media screen and (max-width: 830px) {
+            header nav h1 {
+                font-size: 125px;
+            }
+            header nav ul {
+                margin:  0 auto;
+                width: 80%;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+            }
+            header nav ul li {
+                padding: 15px 30px;
+            }
+            .contenido-cartas {     
+                gap: 20px;
+            }
+            .carta {
+                height: 450px;
+            }
+            .carta-text {
+                overflow-x: hidden;
+                padding: 40px 40px;
+            }
+            .carta-text h2 {
+                font-size: 30px;
+            }
+        }
+        @media screen and (max-width: 500px) {
+            body {
+                overflow-x: hidden;
+                max-width: 500px;
+            }
+            header nav h1 {
+                font-size: 100px;
+            }
+        }
+    </style>
+</head>
+<body> 
+    <header>
+        <img class="portada-ciudad" src="./src/img/lisboa.webp" alt="" srcset="">
+        <nav>
+            <h1>
+                lISBOA
+            </h1>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="#lugares">Lugares</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#reserva">Reserva</a></li>
+                <li><a href="./galeria.html">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>   
+    <main>
+        <section class="introduccion">
+            <h2>La historia de Lisboa</h2>
+            <p>
+                Lisboa, también conocida como Lisboa, es la capital y la ciudad más grande de Portugal. Fundada en el siglo XII a.C. por los fenicios, la ciudad ha sido ocupada por varias culturas a lo largo de los siglos, incluyendo los romanos, los visigodos y los mouros. Durante el siglo XV, Lisboa se convirtió en un importante centro comercial y cultural, y su puerto se convirtió en uno de los más importantes del mundo. En 1755, un gran terremoto destruyó gran parte de la ciudad, pero fue reconstruida en el estilo arquitectónico característico de la época, conocido como Pombalino. Durante el siglo XX, Lisboa experimentó un gran crecimiento urbano y económico, y hoy en día es un importante centro turístico y cultural en Europa. 
+            </p>
+            <article class="video-cont">
+                <iframe width="1000" height="1000" src="https://www.youtube.com/embed/9iUrj19aaNI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </article>
+            <h2>¿Porque visitar Lisboa?</h2>
+            <p>
+                ¿Estás buscando un destino emocionante y lleno de historia? ¡Lisboa es el lugar perfecto para ti! Esta ciudad portuguesa ofrece una mezcla única de arquitectura antigua y moderna, vistas impresionantes y una cultura rica.
+            </p>
+            <p>
+                En Lisboa, podrás caminar por las estrechas calles empedradas del barrio de Alfama y admirar las casas coloridas con azulejos. También podrás experimentar el ambiente auténtico de la ciudad en uno de los pequeños bares de fado.
+            </p>
+            <p>
+                Si te interesa la historia, no puedes perderte la visita al castillo de San Jorge, donde podrás ver toda la ciudad desde la cima y aprender sobre su historia. El barrio de Baixa es el corazón comercial de la ciudad, con una mezcla de edificios antiguos y tiendas y restaurantes modernos.
+            </p>
+            <p>
+                Además, podrás disfrutar de las deliciosas comidas y bebidas locales, como el pastel de nata y el vino tinto, o experimentar la diversidad cultural del barrio de Mouraria, donde podrás probar la comida asiática auténtica y conocer a personas de diferentes culturas.
+            </p>
+            <p>
+                Si te apasiona la fotografía, Lisboa es el lugar perfecto para capturar imágenes únicas y espectaculares de los azulejos icónicos de la ciudad. También podrás disfrutar de un ambiente bohemio y artístico en el barrio de Chiado.
+            </p>
+            <p>
+                En resumen, Lisboa es un destino emocionante y lleno de historia, con una mezcla única de arquitectura, cultura, gastronomía y experiencias fotográficas. ¡No te pierdas la oportunidad de visitar esta ciudad maravillosa!
+            </p>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Razones</th>
+                        <th>Descripcion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Arquitectura</td>
+                        <td>
+                            Lisboa cuenta con una amplia variedad de estilos arquitectónicos, desde el barroco hasta el modernismo, pasando por el manuelino y el pombalino. El Castillo de San Jorge, el Mosteiro dos Jerónimos, y el Barrio Alto son algunos de los lugares más emblemáticos que debes visitar.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gastronomía</td>
+                        <td>
+                            La cocina portuguesa es rica y variada, con platos tradicionales como el bacalhau (bacalao) y el caldo verde, así como deliciosos postres como el pastel de nata. Lisboa cuenta con una gran variedad de restaurantes donde podrás probar estos platos y muchos más.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cultura</td>
+                        <td>
+                            Lisboa es una ciudad con una rica historia y cultura. El Museo Nacional de Arte Antiga, el Museo Calouste Gulbenkian y el Museu Nacional do Azulejo son solo algunos de los lugares donde podrás aprender más sobre la historia y la cultura de Portugal.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Música y fiestas</td>
+                        <td>
+                            Lisboa es conocida por su vida nocturna y por sus festivales de música. El Festival de Verano de Lisboa es uno de los más importantes de Europa, y cuenta con una gran variedad de artistas y géneros. Además, el barrio de Bairro Alto es el lugar perfecto para disfrutar de la música en vivo y bailar hasta el amanecer.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Paisajes</td>
+                        <td>
+                            Lisboa está rodeada de impresionantes paisajes naturales. El Parque Nacional de Sintra-Cascais es un lugar imprescindible para los amantes de la naturaleza, con sus playas, acantilados y bosques. Además, la ciudad cuenta con varios miradores desde donde podrás admirar las impresionantes vistas de Lisboa.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="lugares" class="contenido-cartas sec">
+            <article class="carta">
+                <div class="carta-text">
+                    <h2>Alfama</h2>
+                    <p>
+                        ¡Ven a descubrir la belleza y la historia de Lisboa en el encantador barrio de Alfama! Pasear por sus estrechas calles empedradas es como viajar en el tiempo a la época medieval. Aquí encontrarás iglesias antiguas, palacios históricos y casas de colores con azulejos típicos de Portugal. El barrio es famoso por su animada vida nocturna.
+                    </p>
+                </div>
+                <img src="./src/img/Alfama.jpg" alt="">
+            </article>
+            <article class="carta">
+                <div class="carta-text">
+                    <h2>Barrio Alto</h2>
+                    <p>
+                        En el Barrio Alto, podrás caminar por las estrechas calles empedradas y admirar las casas coloridas con azulejos. También podrás experimentar el ambiente auténtico de la ciudad en uno de los pequeños bares de fado, donde podrás escuchar la música tradicional portuguesa y disfrutar de una copa de vino tinto.
+                    </p>
+                </div>
+                <img src="./src/img/barrio-alto.jpg" alt="">
+            </article>
+            <article class="carta">
+                <div class="carta-text">
+                    <h2>Belem</h2>
+                    <p>
+                        Belem también es conocido por su impresionante arquitectura, como la iglesia de Santa Maria de Belem, que es considerada una de las mejores muestras de la arquitectura manuelina en Lisboa. También podrás disfrutar de los jardines de Belem, que ofrecen una vista impresionante del río Tajo y un ambiente tranquilo para relajarte.
+                    </p>
+                </div>
+                <img src="./src/img/belem.jpg" alt="">
+            </article>
+            <article class="carta">
+                <div class="carta-text">
+                    <h2>Castillo de San Jorge</h2>
+                    <p>
+                        El Castillo de San Jorge es un testigo de la historia de Lisboa y ha sido una fortaleza desde la época romana hasta la actualidad. Puedes explorar sus murallas y torres y aprender sobre su historia a través de los paneles informativos y las exhibiciones interactivas.
+                    </p>
+                </div>
+                <img src="./src/img/Castillo de San Jorge.jpg" alt="">
+            </article>
+            <article class="carta">
+                <div class="carta-text">
+                    <h2>Mosteiro dos Jerónimos</h2>
+                    <p>
+                        El Mosteiro dos Jerónimos es uno de los ejemplos más impresionantes de la arquitectura manuelina en Lisboa. Su fachada y sus detalles arquitectónicos son impresionantes y te dejarán sin aliento. Además, podrás ver las sepulturas de los grandes navegantes portugueses como Vasco da Gama y Fernão de Magalhães
+                    </p>
+                </div>
+                <img src="./src/img/Mosteiro dos Jerónimos.jpg" alt="">
+            </article>
+        </section>
+        <section id="testimonios" class="testimonios">
+            <h2>Testimonios</h2>
+            <article class="visitante-cont">
+                <div class="visitante">
+                 <img src="./src/img/persona-1.jpg" alt="visitante">
+                 <h3>Estefani Morales Ramirez</h3>
+                 <p>
+                     Mi viaje a Lisboa fue impresionante. La ciudad es hermosa y tiene una gran cantidad de cosas para ver y hacer. Una de las experiencias más memorables fue visitar el barrio de Alfama. Es el barrio más antiguo de la ciudad y tiene un ambiente increíblemente auténtico. Pude caminar por las estrechas calles empedradas y admirar las casas coloridas con azulejos. También tuve la oportunidad de escuchar música en vivo en uno de los pequeños bares de fado, lo cual fue increíble. Sin duda, recomiendo una visita a Alfama a cualquiera que viaje a Lisboa. 
+                 </p>
+                </div> 
+                <div class="visitante">
+                 <img src="./src/img/persona-2.jpg" alt="visitante">
+                 <h3>Rojelio Perez Lopez</h3>
+                 <p>
+                     Mi viaje a Lisboa fue una experiencia inolvidable. La ciudad es increíblemente hermosa y tiene una gran cantidad de cosas que hacer. Una de las mejores experiencias que tuve fue visitar el castillo de San Jorge. La vista desde la cima es espectacular y pude ver toda la ciudad desde allí. Además, el castillo en sí es impresionante y está lleno de historia. También disfruté mucho paseando por el barrio de Baixa, que es el corazón comercial de la ciudad. Es impresionante ver cómo se combinan edificios antiguos con tiendas y restaurantes modernos. Sin duda, recomendaría una visita a Lisboa a cualquiera que quiera disfrutar de una ciudad llena de historia y belleza.
+                 </p>
+                </div> 
+                <div class="visitante">
+                 <img src="./src/img/persona-3.jpg" alt="visitante">
+                 <h3>Lizbeth Treviño Martinez</h3>
+                 <p>
+                     Mi viaje a Lisboa fue espectacular. La ciudad tiene una mezcla única de arquitectura antigua y moderna, y el clima es perfecto. Una de las mejores partes de mi viaje fue el paseo en tranvía por las colinas de la ciudad. Es una experiencia divertida y única que te permite ver la ciudad desde una perspectiva diferente. También disfruté mucho de las comidas y bebidas locales, especialmente el pastel de nata y el vino tinto. Sin duda recomendaría un viaje a Lisboa a cualquiera que busque una experiencia cultural y gastronómica inolvidable.
+                 </p>
+                </div> 
+                <div class="visitante">
+                 <img src="./src/img/persona-4.jpg" alt="visitante">
+                 <h3>Lucas Gonzales pinto</h3>
+                 <p>
+                     Mi viaje a Lisboa fue impresionante. La ciudad es increíblemente hermosa y tiene una gran cantidad de cosas que hacer. Una de las mejores experiencias que tuve fue fotografiarme en los azulejos de la ciudad, los azulejos son una característica icónica de Lisboa y son absolutamente impresionantes. Pude capturar algunas fotos increíbles y únicas que me ayudaron a destacar en mi trabajo como modelo. También disfruté mucho paseando por el barrio de Belém, que es conocido por sus monumentos históricos y su deliciosa comida. Sin duda, recomendaría una visita a Lisboa a cualquiera que busque una experiencia fotográfica y gastronómica inolvidable.
+                 </p>
+                </div> 
+                <div class="visitante">
+                 <img src="./src/img/persona-5.jpg" alt="visitante">
+                 <h3>Hana</h3>
+                 <p>
+                     Mi viaje a Lisboa fue una experiencia maravillosa. Como una mujer coreana, me sorprendió gratamente ver cómo la cultura portuguesa se mezclaba con la influencia de otras culturas en la ciudad. Una de las mejores experiencias que tuve fue visitar el barrio de Mouraria, conocido por su gran comunidad de inmigrantes de diferentes orígenes, incluyendo los inmigrantes de Asia. Pude probar la comida asiática auténtica y conocer a personas de diferentes culturas en el barrio. También disfruté mucho paseando por el barrio de Chiado, que es conocido por su arte y su ambiente bohemio. Sin duda, recomendaría una visita a Lisboa a cualquiera que busque una experiencia cultural diversa e interesante.
+                 </p>
+                </div> 
+            </article>
+        </section>
+        <section class="video-lisboa">
+            <iframe width="1000" height="500" src="https://www.youtube.com/embed/QUpUKqcWBm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </section>
+        <section id="reserva" class="reservacion">
+            <form class="formulario" action="">
+                <ul>
+                    <li>
+                        <h2>Reservacion</h2>
+                    </li>
+                    <li>
+                        <label for="nombre">Nombre:</label>
+                        <input id="nombre" type="text" required placeholder="nombre">
+                    </li>
+                    <li>
+                        <label for="email">Email:</label>
+                        <input id="email" type="email" required placeholder="example@gmail.com">
+                    </li>
+                    <li>
+                        <label for="numero">Numero:</label>
+                        <input id="numero" type="number" required placeholder="616 888 88 88">
+                    </li>
+                    <li>
+                        <button type="submit">Enviar</button>
+                    </li>
+                </ul>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <ul>
+            <li><h3>Referencias</h3></li>
+            <li><a target="_blank" href="https://youtu.be/QUpUKqcWBm0">LISBON CINEMATIC TRAVEL VIDEO</a></li>
+            <li><a target="_blank" href="https://youtu.be/9iUrj19aaNI">LISBOA - THE EUROPEAN SAN FRANCISCO</a></li>
+            <li><a target="_blank" href="https://www.pexels.com/es-es/">Pexel</a></li>
+            <li><a target="_blank" href="https://www.portugal.net/lisboa/que-ver-lisboa/alfama/">Alfama</a></li>
+            <li><a target="_blank" href="https://www.tripadvisor.com.mx/Attraction_Review-g189158-d195105-Reviews-Bairro_Alto-Lisbon_Lisbon_District_Central_Portugal.html">Barrio Alto</a></li>
+            <li><a target="_blank" href="https://es.m.wikipedia.org/wiki/Archivo:Torre_Belem_(Lisboa).jpg">Torre Belem</a></li>
+            <li><a target="_blank" href="http://castelodesaojorge.pt/site/es/planear-la-visita/">Castelo de S. Jorge</a></li>
+            <li><a target="_blank" href="https://www.disfrutalisboa.com/actividades/">Lisboa</a></li>
+            <li><a target="_blank" href="https://www.itinari.com/es/location/mosteiro-dos-jeronimos">Mosteiro dos Jerónimos</a></li>
+            <li>Diseño: <a target="_blank" href="https://twitter.com/Agustin8831">Agustin Perez</a></li>
+            <li>Email: <a target="_blank" href="apagustin8831@gmail.com">apagustin8831@gmail.com</a></li>
+        </ul>
+        
+    </footer>
+</body>
+</html>
